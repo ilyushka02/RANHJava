@@ -87,9 +87,26 @@ public class HelloController {
 
     @FXML
     void countng(ActionEvent event) {
-        if (priceTxt.getText().trim().isEmpty() == false)
-            summaryTxt.setText("nice");
-        else{
+        float curr; // текущее показание счетчика
+        float prev; // предыдущее показание счетчика
+        float traf; // цена за кВт
+        float price;
+
+        if (priceTxt.getText().trim().isEmpty() == false){
+            curr = Float.parseFloat(currentTxt.getText());
+            prev = Float.parseFloat(previewTxt.getText());
+            traf = Float.parseFloat(priceTxt.getText());
+            if (curr<=prev)
+                createAlert("Ошибка",
+                        "Ошибка исходных данных",
+                        "Текущее значение показания счетчика\nменьше предыдущего.",
+                        Alert.AlertType.ERROR
+                );
+            else{
+                price = (curr - prev) * traf;
+                summaryTxt.setText("Сумма к оплате: " + price);
+            }
+        }else{
             countBtn.setDisable(true);
             createAlert("Предупреждение",
                     "Не заполненные данные",
