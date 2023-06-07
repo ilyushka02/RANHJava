@@ -26,13 +26,13 @@
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                            <children>
                               <Label text="Предыдущее" />
-                              <TextField fx:id="previewTxt" />
+                              <TextField fx:id="previewTxt" onKeyPressed="#previewCheck" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="35.0">
                            <children>
                               <Label text="Текущее" />
-                              <TextField fx:id="currentTxt" />
+                              <TextField fx:id="currentTxt" onKeyPressed="#currentCheck" />
                            </children>
                         </HBox>
                      </children>
@@ -44,7 +44,7 @@
       <HBox maxWidth="1.7976931348623157E308" prefHeight="30.0" spacing="10.0">
          <children>
             <Label text="Цена(руб./кВт)" />
-            <TextField fx:id="priceTxt" />
+            <TextField fx:id="priceTxt" onKeyPressed="#priceCheck" />
          </children>
       </HBox>
       <Button fx:id="countBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#countng" text="Рассчитать" />
